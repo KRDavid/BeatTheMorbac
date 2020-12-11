@@ -4,37 +4,12 @@ class Board:
     def __init__(self):
         self.board = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
-    def checkPlacement(self, placement):
-        return placement in ["1","2","3","4","5","6","7","8","9"]
+    def checkPlacement(self, x, y):
+        return (x in ["1", "2", "3"] and y in ["1","2","3"])
 
-    def getMapping(self, placement):
-        if placement == "1" :
-            y = 0
-            x = 0
-        if placement == "2" :
-            y = 0
-            x = 1
-        if placement == "3" :
-            y = 0
-            x = 2
-        if placement == "4" :
-            y = 1
-            x = 0
-        if placement == "5" :
-            y = 1
-            x = 1
-        if placement == "6" :
-            y = 1
-            x = 2
-        if placement == "7" :
-            y = 2
-            x = 0
-        if placement == "8" :
-            y = 2
-            x = 1
-        if placement == "9" :
-            y = 2
-            x = 2
+    def getMapping(self, x, y):
+        x = int(x) - 1
+        y = int(y) - 1
         return (x,y)
 
     def isNotAlreadyTaken(self, x, y):
