@@ -81,9 +81,14 @@ class Board:
         if self.board[0][2] + self.board[1][1] + self.board[2][0] in ["XXX", "OOO"]:
             notOver = False
 
+        # Verification égalité
+        if ' ' not in self.board[0] and ' ' not in self.board[1] and ' ' not in self.board[2]:
+            notOver = False
+
         return notOver
 
     def winner(self):
+        gagnant = False
         # Verification victoire en ligne
         if self.board[0][0] + self.board[0][1] + self.board[0][2] in ["XXX", "OOO"]:
             if self.board[0][0] + self.board[0][1] + self.board[0][2] == "XXX":
@@ -158,8 +163,10 @@ class Board:
             self.board[0][2] = "/"
             self.board[1][1] = "/"
             self.board[2][0] = "/"
-
-        print(f"Félicitations ! Le joueur {gagnant} remporte la partie !!")
+        if gagnant != False :
+            print(f"Félicitations ! Le joueur {gagnant} remporte la partie !!")
+        else :
+            print("Dommage.. C'est une égalité..")
 
         return gagnant
 
