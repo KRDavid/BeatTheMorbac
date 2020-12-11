@@ -3,8 +3,7 @@ from src import boardManager
 def turn(Board, player):
 
     valid_placement = False
-    Board.getBoardState()
-    placement = str(input("Choisissez votre emplacement (entre 1 et 9) : "))
+    placement = str(input(f"Joueur {player}, choisissez votre emplacement (entre 1 et 9) : "))
     if Board.checkPlacement(placement):
         x, y = Board.getMapping(placement)
         if Board.isNotAlreadyTaken(x, y):
@@ -32,6 +31,7 @@ def turn(Board, player):
                         if Board.isNotAlreadyTaken(x, y):
                             Board.placeToken(x, y, player)
                             valid_placement = True
+    Board.getBoardState()
 
 
 
