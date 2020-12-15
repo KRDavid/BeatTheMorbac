@@ -5,16 +5,19 @@ from src import boardManager
 from src import turnManager
 
 Board = boardManager.Board()
+PlayerX = turnManager.Player("X")
+PlayerO = turnManager.Player("O")
+
 Board.getBoardState()
 
 while True:
-    turnManager.turn(Board, "X")
+    PlayerX.turn(Board)
     if Board.isNotOver():
         pass
     else:
         break
 
-    turnManager.turn(Board, "O")
+    PlayerO.turn(Board)
     if Board.isNotOver():
         pass
     else:
@@ -22,3 +25,5 @@ while True:
 
 Board.winner()
 Board.getBoardState()
+
+

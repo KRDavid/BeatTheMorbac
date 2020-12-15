@@ -4,10 +4,11 @@ class Board:
     def __init__(self):
         self.board = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
-    def checkPlacement(self, x, y):
-        return (x in ["1", "2", "3"] and y in ["1","2","3"])
 
-    def getMapping(self, x, y):
+    def checkPlacement(x, y):
+        return (x in ["1", "2", "3"] and y in ["1","2","3"])
+    
+    def getMapping(x, y):
         x = int(x) - 1
         y = int(y) - 1
         return (x,y)
