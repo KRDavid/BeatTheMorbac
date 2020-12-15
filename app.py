@@ -6,7 +6,7 @@ from src import turnManager
 
 Board = boardManager.Board()
 PlayerX = turnManager.Player("X")
-PlayerO = turnManager.Player("O")
+PlayerO = turnManager.aiPlayer("O")
 
 Board.getBoardState()
 
