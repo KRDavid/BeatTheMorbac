@@ -1,29 +1,10 @@
 """Fichier principal de l'application
 """
 
-from src import boardManager
-from src import turnManager
+from src import gameManager
 
-Board = boardManager.Board()
-PlayerX = turnManager.Player("X")
-PlayerO = turnManager.aiPlayer("O")
+game = gameManager.Morpion()
 
-Board.getBoardState()
-
-while True:
-    PlayerX.turn(Board)
-    if Board.isNotOver():
-        pass
-    else:
-        break
-
-    PlayerO.turn(Board)
-    if Board.isNotOver():
-        pass
-    else:
-        break
-
-Board.winner()
-Board.getBoardState()
+game.startGame()
 
 

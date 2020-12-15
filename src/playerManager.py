@@ -1,4 +1,3 @@
-from src import boardManager
 import random
 
 class Player:
@@ -71,14 +70,12 @@ class aiPlayer:
             while valid_placement == False:
                 # Gérérer une action
                 x, y = self.generateAction()
-                if Board.checkPlacement(x, y):
-                    x, y = Board.getMapping(x, y)
-                    if Board.isNotAlreadyTaken(x, y):
-                        Board.placeToken(x, y, self.player)
-                        valid_placement = True
-                        reward += .25
-                    else:
-                        reward -= 1
+                if Board.isNotAlreadyTaken(x, y):
+                    Board.placeToken(x, y, self.player)
+                    valid_placement = True
+                    reward += .25
+                else:
+                    reward -= 1
         
         Board.getBoardState()
         return reward
