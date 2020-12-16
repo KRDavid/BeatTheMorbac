@@ -12,19 +12,35 @@ class Morpion:
     def startGame(self):
         self.Board.getBoardState()
 
+        rewardX = 0
+        rewardO = 0
+
         while True:
-            self.PlayerX.turn(self.Board)
+            reward = self.PlayerX.turn(self.Board)
+            rewardX += reward
             if self.Board.isNotOver():
                 pass
             else:
                 break
 
-            self.PlayerO.turn(self.Board)
+            reward = self.PlayerO.turn(self.Board)
+            rewardO += reward
             if self.Board.isNotOver():
                 pass
             else:
                 break
 
-        self.Board.winner()
+        winner = self.Board.winner()
+        if winner == "X":
+            rewardX += 3
+        elif winner == "O":
+            rewardO += 3
+        elif winner == False:
+            rewardX += 1
+            rewardO += 1
+
+
         self.Board.getBoardState()
+
+        return rewardX, rewardO
 
