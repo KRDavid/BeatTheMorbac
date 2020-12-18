@@ -127,44 +127,24 @@ class aiPlayer:
 
     def getWinner(self, board):
         gagnant = False
-        # Verification victoire en ligne
-        if board[0][0] + board[0][1] + board[0][2] in ["XXX", "OOO"]:
-            if board[0][0] + board[0][1] + board[0][2] == "XXX":
-                gagnant = "X"
-            if board[0][0] + board[0][1] + board[0][2] == "OOO":
-                gagnant = "O"
+        for i in range(3):
+            # Verification victoire en ligne
+            if board[i][0] + board[i][1] + board[i][2] in ["XXX", "OOO"]:
+                if board[i][0] + board[i][1] + board[i][2] == "XXX":
+                    gagnant = "X"
+                if board[i][0] + board[i][1] + board[i][2] == "OOO":
+                    gagnant = "O"
 
-        if board[1][0] + board[1][1] + board[1][2] in ["XXX", "OOO"]:
-            if board[1][0] + board[1][1] + board[1][2] == "XXX":
-                gagnant = "X"
-            if board[1][0] + board[1][1] + board[1][2] == "OOO":
-                gagnant = "O"
 
-        if board[2][0] + board[2][1] + board[2][2] in ["XXX", "OOO"]:
-            if board[2][0] + board[2][1] + board[2][2] == "XXX":
-                gagnant = "X"
-            if board[2][0] + board[2][1] + board[2][2] == "OOO":
-                gagnant = "O"
+        for i in range(3):
+            # Verification victoire en colonne
+            if board[0][i] + board[1][i] + board[2][i] in ["XXX", "OOO"]:
+                if board[0][i] + board[1][i] + board[2][i] == "XXX":
+                    gagnant = "X"
+                if board[0][i] + board[1][i] + board[2][i] == "OOO":
+                    gagnant = "O"
 
-        # Verification victoire en colonne
-        if board[0][0] + board[1][0] + board[2][0] in ["XXX", "OOO"]:
-            if board[0][0] + board[1][0] + board[2][0] == "XXX":
-                gagnant = "X"
-            if board[0][0] + board[0][1] + board[0][2] == "OOO":
-                gagnant = "O"
-
-        if board[0][1] + board[1][1] + board[2][1] in ["XXX", "OOO"]:
-            if board[0][1] + board[1][1] + board[2][1] == "XXX":
-                gagnant = "X"
-            if board[0][1] + board[1][1] + board[2][1] == "OOO":
-                gagnant = "O"
-
-        if board[0][2] + board[1][2] + board[2][2] in ["XXX", "OOO"]:
-            if board[0][2] + board[1][2] + board[2][2] == "XXX":
-                gagnant = "X"
-            if board[0][2] + board[1][2] + board[2][2] == "OOO":
-                gagnant = "O"
-
+        
         # Verification victoire en diagonale
         if board[0][0] + board[1][1] + board[2][2] in ["XXX", "OOO"]:
             if board[0][0] + board[1][1] + board[2][2] == "XXX":
@@ -177,3 +157,5 @@ class aiPlayer:
                 gagnant = "X"
             if board[0][2] + board[1][1] + board[2][0] == "OOO":
                 gagnant = "O"
+
+        return gagnant
