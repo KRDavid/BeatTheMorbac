@@ -1,4 +1,6 @@
 
+import os
+
 class Board:
 
     def __init__(self):
@@ -20,6 +22,7 @@ class Board:
         self.board[y][x] = player
     
     def getBoardState(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('')
         print("   |   |   ")
         print(" " + self.board[0][0] + " | " + self.board[0][1] + " | " + self.board[0][2] + " ")
