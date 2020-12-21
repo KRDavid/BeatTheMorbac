@@ -1,6 +1,7 @@
 from src import boardManager
 from src import playerManager
 import random
+import os
 
 
 class Morpion:
@@ -27,6 +28,7 @@ class Morpion:
 
 
     def startGame(self):
+        os.system('cmd /c "cls"')
         self.printStartingText()
 
         if self.mode == "pvp":
@@ -45,12 +47,14 @@ class Morpion:
             self.Board.getBoardState()
 
             while True:
+                self.hudDisplay()
                 self.PlayerX.turn()
                 if self.Board.isNotOver(self.Board.board):
                     pass
                 else:
                     break
 
+                self.hudDisplay()
                 self.PlayerO.turn()
                 if self.Board.isNotOver(self.Board.board):
                     pass
@@ -66,12 +70,14 @@ class Morpion:
         self.Board.getBoardState()
 
         while True:
+            self.hudDisplay()
             self.PlayerX.turn(self.PlayerX.generateAction(self.Board.board, self.PlayerX.player))
             if self.Board.isNotOver(self.Board.board):
                 pass
             else:
                 break
 
+            self.hudDisplay()
             self.PlayerO.turn(self.PlayerO.generateAction(self.Board.board, self.PlayerO.player))
             if self.Board.isNotOver(self.Board.board):
                 pass
@@ -92,12 +98,14 @@ class Morpion:
 
         if self.first >= 0.5:
             while True:
+                self.hudDisplay()
                 self.PlayerX.turn()
                 if self.Board.isNotOver(self.Board.board):
                     pass
                 else:
                     break
 
+                self.hudDisplay()
                 self.PlayerO.turn(self.PlayerO.generateAction(self.Board.board, self.PlayerO.player))
                 if self.Board.isNotOver(self.Board.board):
                     pass
@@ -105,12 +113,14 @@ class Morpion:
                     break
         else:
             while True:
+                self.hudDisplay()
                 self.PlayerX.turn(self.PlayerX.generateAction(self.Board.board, self.PlayerX.player))
                 if self.Board.isNotOver(self.Board.board):
                     pass
                 else:
                     break
 
+                self.hudDisplay()
                 self.PlayerO.turn()
                 if self.Board.isNotOver(self.Board.board):
                     pass
@@ -136,3 +146,8 @@ class Morpion:
         print("|    o                       x      o         |")
         print("|                 x                           |")
         print(" ---------------------------------------------")
+
+    def hudDisplay(self):
+        os.system('cmd /c "cls"')
+        self.printStartingText()
+        self.Board.getBoardState()

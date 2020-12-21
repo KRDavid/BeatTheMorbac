@@ -44,7 +44,6 @@ class Player:
                             if self.Board.isNotAlreadyTaken(x, y):
                                 self.Board.placeToken(x, y, self.player)
                                 valid_placement = True
-        self.Board.getBoardState()
 
 
 class aiPlayer:
@@ -122,8 +121,6 @@ class aiPlayer:
         y, x = self.actionSpace[action]
     
         self.Board.placeToken(x, y, self.player)
-
-        self.Board.getBoardState()
 
     def getWinner(self, board):
         gagnant = False
