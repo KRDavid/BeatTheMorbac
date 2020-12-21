@@ -3,6 +3,8 @@ from pygame.locals import *
 
 from src import gameManager
 
+
+    
 #Initialisation de la bibliothèque Pygame
 pygame.init()
 
@@ -83,14 +85,22 @@ while continuer:
         #Chargement du fond
         fond = pygame.image.load('src/img/fond.png').convert()
         fenetre.blit(fond, (0,0))
-        
+
         #Rafraichissement
         pygame.display.flip()
 
-        # #Génération d'un niveau à partir d'un fichier
-        # game = Niveau(choix)
-        # niveau.generer()
-        # niveau.afficher(fenetre)
+        if choix == 'JCJ':
+
+            game = gameManager.MorpionHvH()
+            game.startGame(fenetre)
+
+        # elif choix == 'JCM':
+        #     game = gameManager.MorpionMvH()
+        #     game.startGame()
+
+        # elif choix == 'MCM':
+        #     game = gameManager.MorpionMvM()
+        #     game.startGame()
 
                 
     #BOUCLE DE JEU
@@ -115,6 +125,8 @@ while continuer:
             
         #Affichages aux nouvelles positions
         fenetre.blit(fond, (0,0))
+
+
         # niveau.afficher(fenetre)
         # fenetre.blit(dk.direction, (dk.x, dk.y)) #dk.direction = l'image dans la bonne direction
         # pygame.display.flip()
@@ -147,3 +159,30 @@ while continuer:
         if event.type == QUIT:     #Si un de ces événements est de type QUIT
             continuer = 0 
 
+
+
+
+
+
+
+
+
+
+# if self.grille[y][x] == 'X':
+#                     pygame.draw.line(self.ecran,self.X_color,(x*200, y*200),(200 + (x*200), 200 + (y*200)), 10)
+#                     pygame.draw.line(self.ecran,self.X_color,((x*200), 200 + (y*200)),(200 + (x*200), (y*200)), 10)
+#                 elif self.grille[y][x] == 'O':
+                    
+# pygame.draw.circle
+# (self.ecran,self.O_color,(100 + (x*200), 100 + (y*200)),180, 10)
+
+# self.lignes = [ ((200,0),(200,200)),
+#                         ((400,0),(400,400)),
+#                         ((0,200),(600,200)),
+#                         ((0,400),(600,400))]
+
+# for ligne in self.lignes :
+#     pygame.draw.line(self.ecran,self.grille_color,ligne[0],ligne[1],3)
+
+# position_x, position_y = position[0]//200, position[1]//200
+#         case = [position_x,position_y]

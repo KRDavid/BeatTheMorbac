@@ -42,7 +42,7 @@ class Player:
                             if Board.isNotAlreadyTaken(x, y):
                                 Board.placeToken(x, y, self.player)
                                 valid_placement = True
-        Board.getBoardState()
+        # Board.getBoardState()
 
 
 class aiPlayer:
@@ -77,5 +77,5 @@ class aiPlayer:
                 else:
                     reward -= 1
         
-        Board.getBoardState()
+        # Board.getBoardState()
         return reward

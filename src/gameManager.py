@@ -1,5 +1,6 @@
 from src import boardManager
 from src import playerManager
+import pygame
 
 
 class MorpionMvM:
@@ -10,10 +11,12 @@ class MorpionMvM:
 
 
     def startGame(self):
-        self.Board.getBoardState()
+        # self.Board.getBoardState()
 
         rewardX = 0
         rewardO = 0
+
+        # self.Board.drawGrid()
 
         while True:
             reward = self.PlayerX.turn(self.Board)
@@ -94,8 +97,9 @@ class MorpionHvH:
         self.PlayerO = playerManager.Player("O")
 
 
-    def startGame(self):
-        self.Board.getBoardState()
+    def startGame(self, fenetre):
+        # self.Board.getBoardState()
+        self.Board.drawGrid(fenetre)
 
         while True:
             reward = self.PlayerX.turn(self.Board)

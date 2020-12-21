@@ -1,5 +1,6 @@
 
 import os
+import pygame
 
 class Board:
 
@@ -15,6 +16,20 @@ class Board:
         y = int(y) - 1
         return (x,y)
 
+    def drawGrid(self, fenetre):
+        x = 122
+        y = 51
+        blockSize = 90 #Set the size of the grid block
+
+        for x in range(398):
+            for y in range(398):
+                rect = pygame.Rect(x*blockSize, y*blockSize,
+                                blockSize, blockSize)
+                pygame.draw.rect(fenetre, (200, 200, 200), rect, 2)
+            
+        pygame.display.flip()
+
+
     def isNotAlreadyTaken(self, x, y):
         return self.board[y][x] == ' '
 
@@ -23,6 +38,7 @@ class Board:
     
     def getBoardState(self):
         os.system('cls' if os.name == 'nt' else 'clear')
+        print('------------------\n')
         print('')
         print("   |   |   ")
         print(" " + self.board[0][0] + " | " + self.board[0][1] + " | " + self.board[0][2] + " ")
