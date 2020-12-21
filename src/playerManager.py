@@ -99,7 +99,7 @@ class aiPlayer:
                 move['score'] = result
 
             moves.append(move)
-
+        
         best_move = None
         if player == self.player:   # If AI player
             best = -infinity

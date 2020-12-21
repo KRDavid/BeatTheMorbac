@@ -1,9 +1,13 @@
 """Fichier principal de l'application
 """
 
-from typing import get_args
 from src import gameManager
+import argparse
 
-game = gameManager.Morpion()
+parser = argparse.ArgumentParser(description="Venez affronter Morbac ou vos amis !")
+parser.add_argument("mode", help="pvp : Joueur contre joueur, pvai : Joueur contre Morbac, aivai : Morbac contre Morbac")
+args = parser.parse_args()
+
+game = gameManager.Morpion(args.mode)
 
 game.startGame()
