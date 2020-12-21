@@ -27,6 +27,8 @@ class Morpion:
 
 
     def startGame(self):
+        self.printStartingText()
+
         if self.mode == "pvp":
             self.humanVsHuman()  
 
@@ -123,3 +125,14 @@ class Morpion:
         self.Board.getBoardState()
 
         return winner
+
+    def printStartingText(self):
+        print(" ---------------------------------------------")
+        print("|                       o                     |")
+        print("|     x          x                    x       |")
+        print("|                                             |")
+        print("|       o      BEAT THE MORBAC           o    |")
+        print("|                                             |")
+        print("|    o                       x      o         |")
+        print("|                 x                           |")
+        print(" ---------------------------------------------")
