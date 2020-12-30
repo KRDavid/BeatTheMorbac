@@ -44,24 +44,33 @@ class Morpion:
 
 
     def humanVsHuman(self):
-            self.Board.getBoardState()
+        self.Board.getBoardState()
 
-            while True:
-                self.hudDisplay()
-                self.PlayerX.turn()
-                if self.Board.isNotOver(self.Board.board):
-                    pass
-                else:
-                    break
+        while True:
+            self.hudDisplay()
+            self.PlayerX.turn()
+            if self.Board.isNotOver(self.Board.board):
+                pass
+            else:
+                break
 
-                self.hudDisplay()
-                self.PlayerO.turn()
-                if self.Board.isNotOver(self.Board.board):
-                    pass
-                else:
-                    break
+            self.hudDisplay()
+            self.PlayerO.turn()
+            if self.Board.isNotOver(self.Board.board):
+                pass
+            else:
+                break
+        
+        winner = self.Board.winner(self.Board.board)
 
-            winner = self.Board.winner(self.Board.board)
+
+        self.hudDisplay()
+        if winner != False :
+            print(f"Félicitations ! Le joueur {winner} remporte la partie !!")
+        else :
+            print("Dommage.. C'est une égalité..")
+
+        return winner
 
 
 
@@ -87,9 +96,11 @@ class Morpion:
         winner = self.Board.winner(self.Board.board)
 
 
-
-        self.Board.getBoardState()
-
+        self.hudDisplay()
+        if winner != False :
+            print(f"Félicitations ! Le joueur {winner} remporte la partie !!")
+        else :
+            print("Dommage.. C'est une égalité..")
         return winner
 
 
@@ -128,11 +139,15 @@ class Morpion:
                     break
             
 
+        
         winner = self.Board.winner(self.Board.board)
 
 
-
-        self.Board.getBoardState()
+        self.hudDisplay()
+        if winner != False :
+            print(f"Félicitations ! Le joueur {winner} remporte la partie !!")
+        else :
+            print("Dommage.. C'est une égalité..")
 
         return winner
 

@@ -8,8 +8,8 @@ class Player:
     def turn(self):
 
         valid_placement = False
-        x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
         y = str(input(f"Joueur {self.player}, choisissez votre ligne (1 à 3) : "))
+        x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
         if self.Board.checkPlacement(x, y):
             x, y = self.Board.getMapping(x, y)
             if self.Board.isNotAlreadyTaken(x, y):
@@ -17,8 +17,8 @@ class Player:
             else:
                 while valid_placement == False:
                     print("Placement invalide")
-                    x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
                     y = str(input(f"Joueur {self.player}, choisissez votre ligne (1 à 3) : "))
+                    x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
                     if self.Board.checkPlacement(x, y):
                         x, y = self.Board.getMapping(x, y)
                         if self.Board.isNotAlreadyTaken(x, y):
@@ -27,8 +27,8 @@ class Player:
         else:
             while valid_placement == False:
                 print("Placement invalide")
-                x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
                 y = str(input(f"Joueur {self.player}, choisissez votre ligne (1 à 3) : "))
+                x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
                 if self.Board.checkPlacement(x, y):
                     x, y = self.Board.getMapping(x, y)
                     if self.Board.isNotAlreadyTaken(x, y):
@@ -37,8 +37,8 @@ class Player:
                 else:
                     while valid_placement == False:
                         print("Placement invalide")
-                        x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
                         y = str(input(f"Joueur {self.player}, choisissez votre ligne (1 à 3) : "))
+                        x = str(input(f"Joueur {self.player}, choisissez votre colonne (1 à 3) : "))
                         if self.Board.checkPlacement(x, y):
                             x, y = self.Board.getMapping(x, y)
                             if self.Board.isNotAlreadyTaken(x, y):
@@ -72,7 +72,7 @@ class aiPlayer:
             if winner == self.player:
                 return 1
             if winner != False and winner != self.player:
-                return -1
+                return -10
             if winner == False:
                 return 0
 
@@ -128,31 +128,31 @@ class aiPlayer:
             # Verification victoire en ligne
             if board[i][0] + board[i][1] + board[i][2] in ["XXX", "OOO"]:
                 if board[i][0] + board[i][1] + board[i][2] == "XXX":
-                    gagnant = "X"
+                    return "X"
                 if board[i][0] + board[i][1] + board[i][2] == "OOO":
-                    gagnant = "O"
+                    return "O"
 
 
         for i in range(3):
             # Verification victoire en colonne
             if board[0][i] + board[1][i] + board[2][i] in ["XXX", "OOO"]:
                 if board[0][i] + board[1][i] + board[2][i] == "XXX":
-                    gagnant = "X"
+                    return "X"
                 if board[0][i] + board[1][i] + board[2][i] == "OOO":
-                    gagnant = "O"
+                    return "O"
 
         
         # Verification victoire en diagonale
         if board[0][0] + board[1][1] + board[2][2] in ["XXX", "OOO"]:
             if board[0][0] + board[1][1] + board[2][2] == "XXX":
-                gagnant = "X"
+                return "X"
             if board[0][0] + board[1][1] + board[2][2] == "OOO":
-                gagnant = "O"
+                return "O"
 
         if board[0][2] + board[1][1] + board[2][0] in ["XXX", "OOO"]:
             if board[0][2] + board[1][1] + board[2][0] == "XXX":
-                gagnant = "X"
+                return "X"
             if board[0][2] + board[1][1] + board[2][0] == "OOO":
-                gagnant = "O"
+                return "O"
 
         return gagnant

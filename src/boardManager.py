@@ -22,17 +22,17 @@ class Board:
 
     def getBoardState(self):
         print('')
-        print("                    |   |   ")
-        print("                  " + self.board[0][0] + " | " + self.board[0][1] + " | " + self.board[0][2] + " ")
-        print("                    |   |   ")
-        print("                 -----------")
-        print("                    |   |   ")
-        print("                  " + self.board[1][0] + " | " + self.board[1][1] + " | " + self.board[1][2] + " ")
-        print("                    |   |   ")
-        print("                 -----------")
-        print("                    |   |   ")
-        print("                  " + self.board[2][0] + " | " + self.board[2][1] + " | " + self.board[2][2] + " ")
-        print("                    |   |   ")
+        print("                     |   |   ")
+        print("                   " + self.board[0][0] + " | " + self.board[0][1] + " | " + self.board[0][2] + " ")
+        print("                     |   |   ")
+        print("                  -----------")
+        print("                     |   |   ")
+        print("                   " + self.board[1][0] + " | " + self.board[1][1] + " | " + self.board[1][2] + " ")
+        print("                     |   |   ")
+        print("                  -----------")
+        print("                     |   |   ")
+        print("                   " + self.board[2][0] + " | " + self.board[2][1] + " | " + self.board[2][2] + " ")
+        print("                     |   |   ")
         print('')
     
     def isNotOver(self, board):
@@ -104,10 +104,7 @@ class Board:
             board[0][2] = "/"
             board[1][1] = "/"
             board[2][0] = "/"
-        if gagnant != False :
-            print(f"Félicitations ! Le joueur {gagnant} remporte la partie !!")
-        else :
-            print("Dommage.. C'est une égalité..")
+        
 
         return gagnant
 
