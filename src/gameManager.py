@@ -31,14 +31,14 @@ class Morpion:
         os.system('cmd /c "cls"')
         self.printStartingText()
 
-        if self.mode == "pvp":
-            self.humanVsHuman()  
+        # if self.mode == "pvp":
+        #     self.humanVsHuman()  
 
-        if self.mode == "aivai":
-            self.aiVsAi()
+        # if self.mode == "aivai":
+        #     self.aiVsAi()
 
-        if self.mode == "pvai":
-            self.humanVsAi()
+        # if self.mode == "pvai":
+        self.humanVsAi()
         
     
 
