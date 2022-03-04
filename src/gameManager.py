@@ -5,26 +5,26 @@ import os
 
 
 class Morpion:
-    def __init__(self, mode):
+    def __init__(self):
         self.Board = boardManager.Board()
         self.first = random.uniform(0,1)
-        self.mode = mode
+        # self.mode = mode
 
-        if self.mode == "pvp":
+        # if self.mode == "pvp":
+        # self.PlayerX = playerManager.Player("X", self.Board)
+        # self.PlayerO = playerManager.Player("O", self.Board)  
+
+        # if self.mode == "aivai":
+        #     self.PlayerX = playerManager.aiPlayer("X", self.Board)
+        #     self.PlayerO = playerManager.aiPlayer("O", self.Board) 
+
+        # if self.mode == "pvai":
+        if self.first >= 0.5:
             self.PlayerX = playerManager.Player("X", self.Board)
-            self.PlayerO = playerManager.Player("O", self.Board)  
-
-        if self.mode == "aivai":
+            self.PlayerO = playerManager.aiPlayer("O", self.Board)
+        else:
             self.PlayerX = playerManager.aiPlayer("X", self.Board)
-            self.PlayerO = playerManager.aiPlayer("O", self.Board) 
-
-        if self.mode == "pvai":
-            if self.first >= 0.5:
-                self.PlayerX = playerManager.Player("X", self.Board)
-                self.PlayerO = playerManager.aiPlayer("O", self.Board)
-            else:
-                self.PlayerX = playerManager.aiPlayer("X", self.Board)
-                self.PlayerO = playerManager.Player("O", self.Board)
+            self.PlayerO = playerManager.Player("O", self.Board)
 
 
     def startGame(self):
